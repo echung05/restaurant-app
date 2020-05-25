@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "538b94b3cd02e7febb53b2a7bf353117",
+    "revision": "24f1764e7761c9a6cae842def5c0576d",
     "url": "/echung05.github.io/restaurant-app/index.html"
   },
   {
-    "revision": "242365053d35f31a3b6a",
+    "revision": "9856db0c0110c3a69409",
     "url": "/echung05.github.io/restaurant-app/static/css/main.523f09c5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/echung05.github.io/restaurant-app/static/js/2.ec46a666.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "242365053d35f31a3b6a",
-    "url": "/echung05.github.io/restaurant-app/static/js/main.6d4a002e.chunk.js"
+    "revision": "9856db0c0110c3a69409",
+    "url": "/echung05.github.io/restaurant-app/static/js/main.18b3ca9c.chunk.js"
   },
   {
     "revision": "ce544296a5e83782aa81",
