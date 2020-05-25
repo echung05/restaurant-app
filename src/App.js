@@ -1,61 +1,61 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import InputForm from './InputForm'
+require('dotenv').config();
 
 const DisplayPlaces = (props) => {
+  //const [getIndex, setIndex] = React.useState(0);
   return (
-    <div className="placesList">
+    <Card style={{ width: "50vh", marginLeft: "36vw", textAlign: "left" }}>
       <Accordion>
         {props.places.map(place => {
           return (
             <Card>
               <Card.Header>
                 <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                  {place.name}
+                  <div>{place.name}</div>
+                  <div style={{ fontSize: "12px", textAlign: "left" }}>
+                    {
+                      place.price_level === 4 ? <div>$$$$</div> :
+                        place.price_level === 3 ? <div>$$$</div> :
+                          place.price_level === 2 ? <div>$$</div> :
+                            <div>$</div>
+                    }
+                  </div>
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Card.Body>{place.rating}</Card.Body>
+                <Card.Body>
+                  <div style={{ fontSize: "12px", textAlign: "left" }}>{place.rating} ({place.user_ratings_total}) on yelp</div>
+                </Card.Body>
               </Accordion.Collapse>
             </Card>
           )
         })}
       </Accordion>
-    </div>
+    </Card>
   );
 }
 
 function App() {
-  const [getPlaces, setPlaces] = React.useState(
-    [{
-      name: "The Virginian",
-      rating: "4.3/5",
-      location: "1521 University Ave",
-      price: "$$",
-      type: "American restaurant",
-    }, {
-      name: "Roots",
-      rating: "4.7/5",
-      location: "1329 Main St W",
-      price: "$",
-      type: "Restaurant",
-    }, {
-      name: "Christians",
-      rating: "4/5",
-      location: "100 14th St NW",
-      price: "$",
-      type: "Pizza Restaurant",
-    }]);
+
+  const [getPlaces, setPlace] = React.useState([]);
+  const [getCoords, setCoords] = React.useState();
+
 
   return (
-    <div className="App">
+    <div className="App" >
+      <h1 className="header" style={{ fontWeight: "bold", marginTop: "2vh" }}>HOOS Eating</h1>
 
-      <DisplayPlaces places={getPlaces} />
 
-    </div>
+      <div style={{ marginTop: "2vw" }}><InputForm places={getPlaces} setPlaces={setPlace} setCoords={setCoords} /></div>
+      <div><DisplayPlaces places={getPlaces} /></div>
+
+    </div >
   );
 }
 
