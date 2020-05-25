@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/echung05.github.io/restaurant-app/static/css/main.523f09c5.chunk.css",
+    "main.js": "/echung05.github.io/restaurant-app/static/js/main.6d4a002e.chunk.js",
+    "main.js.map": "/echung05.github.io/restaurant-app/static/js/main.6d4a002e.chunk.js.map",
+    "runtime-main.js": "/echung05.github.io/restaurant-app/static/js/runtime-main.5c989299.js",
+    "runtime-main.js.map": "/echung05.github.io/restaurant-app/static/js/runtime-main.5c989299.js.map",
+    "static/js/2.ec46a666.chunk.js": "/echung05.github.io/restaurant-app/static/js/2.ec46a666.chunk.js",
+    "static/js/2.ec46a666.chunk.js.map": "/echung05.github.io/restaurant-app/static/js/2.ec46a666.chunk.js.map",
+    "index.html": "/echung05.github.io/restaurant-app/index.html",
+    "precache-manifest.60623dc1dcbba61005f3c61aa06e9f7c.js": "/echung05.github.io/restaurant-app/precache-manifest.60623dc1dcbba61005f3c61aa06e9f7c.js",
+    "service-worker.js": "/echung05.github.io/restaurant-app/service-worker.js",
+    "static/css/main.523f09c5.chunk.css.map": "/echung05.github.io/restaurant-app/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.ec46a666.chunk.js.LICENSE.txt": "/echung05.github.io/restaurant-app/static/js/2.ec46a666.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5c989299.js",
+    "static/js/2.ec46a666.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.6d4a002e.chunk.js"
+  ]
+}
