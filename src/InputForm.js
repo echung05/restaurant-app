@@ -15,14 +15,14 @@ const InputForm = (props) => {
             .then(resp => resp.json())
             .then(data => {
                 handleAPIResults(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
-                props.setCoords({ latitude: data.results[0].geometry.location.lat, longitude: data.results[0].geometry.location.lng });
+                props.setCoords([data.results[0].geometry.location.lat, data.results[0].geometry.location.lng]);
             })
             .catch(err => console.error(err));
     }
 
     const handleAPIResults = (lat, lng) => {
         let loc = "&location=" + lat + "," + lng;
-        let url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?&opennow&rankby=distance&keyword=restaurant+bar&key=" + process.env.API_KEY + loc
+        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?&opennow&rankby=distance&keyword=restaurant+bar&key=" + process.env.REACT_APP_API_KEY + loc
 
         fetch(url)
             .then(resp => resp.json())
@@ -34,12 +34,12 @@ const InputForm = (props) => {
     }
 
     return (
-        <Card style={{ width: "50vw", marginLeft: "23vw", marginBottom: "5vh" }}>
+        <Card style={{ margin: "0 auto", height: "10vw", width: "50vw", marginBottom: "5vh", float: "none" }}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formAddress">
-                    <Form.Control type="text" placeholder="Enter address" style={{ width: "45vw", marginLeft: "5vh", marginTop: "2vh" }} />
+                    <Form.Control type="text" placeholder="Enter address" style={{ margin: "0 auto", width: "40vw", marginTop: "2vh", float: "none" }} />
                 </Form.Group>
-                <Button className="submitButton" variant="outline-primary" type="submit" style={{ marginBottom: "10vh" }}>
+                <Button className="submitButton" variant="outline-primary" type="submit" style={{ marginBottom: "2vh", marginTop: "3vh" }}>
                     Submit
                 </Button>
             </Form>

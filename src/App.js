@@ -5,20 +5,20 @@ import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import InputForm from './InputForm'
+import Leaflet from "./Leaflet.js"
 require('dotenv').config();
 
 const DisplayPlaces = (props) => {
-  //const [getIndex, setIndex] = React.useState(0);
   return (
-    <Card style={{ width: "50vh", marginLeft: "36vw", textAlign: "left" }}>
+    <Card style={{ margin: "0 auto", width: "50vh", textAlign: "left", float: "none" }}>
       <Accordion>
-        {props.places.map(place => {
+        {props.places.map((place, index) => {
           return (
             <Card>
               <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                <Accordion.Toggle as={Button} variant="link" eventKey={index}>
                   <div>{place.name}</div>
-                  <div style={{ fontSize: "12px", textAlign: "left" }}>
+                  <div style={{ fontSize: "12px", textAlign: "left", fontWeight: "bold" }}>
                     {
                       place.price_level === 4 ? <div>$$$$</div> :
                         place.price_level === 3 ? <div>$$$</div> :
@@ -28,9 +28,10 @@ const DisplayPlaces = (props) => {
                   </div>
                 </Accordion.Toggle>
               </Card.Header>
-              <Accordion.Collapse eventKey="0">
+              <Accordion.Collapse eventKey={index}>
                 <Card.Body>
-                  <div style={{ fontSize: "12px", textAlign: "left" }}>{place.rating} ({place.user_ratings_total}) on yelp</div>
+                  <div style={{ fontSize: "12px", textAlign: "left" }}>{place.rating} &#9733; ({place.user_ratings_total}) on Yelp</div>
+                  <div style={{ fontSize: "12px", textAlign: "left", fontWeight: "bold" }}>{place.vicinity}</div>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -53,8 +54,8 @@ function App() {
 
 
       <div style={{ marginTop: "2vw" }}><InputForm places={getPlaces} setPlaces={setPlace} setCoords={setCoords} /></div>
-      <div><DisplayPlaces places={getPlaces} /></div>
-
+      <Leaflet coords={getCoords} places={getPlaces} />
+      <div style={{ marginTop: "2vh" }}><DisplayPlaces places={getPlaces} /></div>
     </div >
   );
 }
