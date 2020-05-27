@@ -2,6 +2,9 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import InputForm from './InputForm'
@@ -10,7 +13,7 @@ require('dotenv').config();
 
 const DisplayPlaces = (props) => {
   return (
-    <Card style={{ margin: "0 auto", width: "50vh", textAlign: "left", float: "none" }}>
+    <Card className="scroll" style={{ margin: "0 auto", width: "50vh", textAlign: "left", float: "none" }}>
       <Accordion>
         {props.places.map((place, index) => {
           return (
@@ -54,8 +57,23 @@ function App() {
 
 
       <div style={{ marginTop: "2vw" }}><InputForm places={getPlaces} setPlaces={setPlace} setCoords={setCoords} /></div>
-      <Leaflet coords={getCoords} places={getPlaces} />
-      <div style={{ marginTop: "2vh" }}><DisplayPlaces places={getPlaces} /></div>
+      {
+        (getPlaces != 0) && [
+          <Container fluid>
+            <Row>
+              <Col md='auto' style={{ marginTop: "4vh" }}>
+                <DisplayPlaces places={getPlaces} />
+              </Col>
+              <Col>
+                <Leaflet coords={getCoords} places={getPlaces} />
+              </Col>
+            </Row>
+          </Container>
+        ]
+      }
+
+      {/* <Leaflet coords={getCoords} places={getPlaces} />
+      <div style={{ marginTop: "2vh" }}><DisplayPlaces places={getPlaces} /></div> */}
     </div >
   );
 }

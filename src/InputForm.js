@@ -26,10 +26,7 @@ const InputForm = (props) => {
 
         fetch(url)
             .then(resp => resp.json())
-            .then(data => {
-                props.setPlaces(data.results)
-                console.log(data.results)
-            })
+            .then(data => props.setPlaces(data.results))
             .catch(err => console.error(err));
     }
 
