@@ -1,6 +1,6 @@
-import React from 'react'
-import { Map, Marker, Popup, TileLayer, Circle } from 'react-leaflet'
-import './App.css'
+import React from 'react';
+import { Map, Marker, Popup, TileLayer, Circle } from 'react-leaflet';
+import './App.css';
 
 const style = {
     margin: "0 auto",
